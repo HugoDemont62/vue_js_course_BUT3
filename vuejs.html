@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs</title>
+    <!-- SCRIPT VUEJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Les départements</h1>
+    <ul>
+        <li v-for="departement in departements">
+            {{ departement.dep_name }}
+        </li>
+    </ul>
+
+    <h1>Les régions</h1>
+    <ul>
+        <li v-for="region in regions">
+            {{ region.region_name }}
+        </li>
+    </ul>
+</div>
+
+<script>
+let app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!',
+        departements: [],
+        regions: [],
+    },
+    mounted: async function() {
+        fetch('https://static.data.gouv.fr/resources/departements-et-leurs-regions/20190815-175403/departements-region.json').
+                then(response => response.json()).
+                then(data => {
+                    this.departements = data;
+                    this.regions = data.map(departement => departement.region_name);
+                });
+    },
+});
+</script>
+</body>
+</html>
