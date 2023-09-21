@@ -5,8 +5,8 @@
     <p>{{ pages }}</p>
     <p> {{ date }}</p>
 
-    <button v-if="!isLiked" class="button-dislike" @click="$emit('like')">Dislike</button>
-    <button v-else class="button-like" @click="$emit('dislike')">Like</button>
+    <button v-if="!isLiked" class="button-like" @click="$emit('like')">Like</button>
+    <button v-else class="button-dislike" @click="$emit('dislike')">dislike</button>
   </div>
 </template>
 
