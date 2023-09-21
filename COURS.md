@@ -266,3 +266,138 @@ let app = new Vue({
 });
 </script>
 ````
+
+Les emits permettent de passer des données d'un composant enfant à un composant parent.
+
+````html
+
+<div id="app">
+    <child-component v-on:emit1="increment"></child-component>
+    <p>{{ counter }}</p>
+</div>
+
+<script>
+Vue.component('child-component', {
+    template: '<button v-on:click="increment">Incrémenter</button>',
+    methods: {
+        increment: function() {
+            this.$emit('emit1');
+        },
+    },
+});
+
+let app = new Vue({
+    el: '#app',
+    data: {
+        counter: 0,
+    },
+    methods: {
+        increment: function() {
+            this.counter++;
+        },
+    },
+});
+
+</script>
+````
+
+## Application VueJs
+
+### Installation
+
+    ````bash
+    npm install -g @vue/cli
+    # OR
+    yarn global add @vue/cli
+    ````
+    
+        ````bash    
+    vue create my-project
+    # OR
+    vue ui
+    ````
+
+### Le projet
+
+#### Structure du projet
+
+- `public` : contient les fichiers statiques de l'application
+- `src` : contient les fichiers sources de l'application
+    - `assets` : contient les fichiers statiques de l'application
+    - `components` : contient les composants de l'application
+    - `views` : contient les vues de l'application
+    - `App.vue` : composant principal de l'application
+    - `main.js` : point d'entrée de l'application
+- `tests` : contient les tests de l'application
+- `package.json` : contient les informations du projet et les dépendances de l'application
+- `babel.config.js` : contient la configuration de Babel
+
+#### Les composants
+
+Les composants sont des éléments réutilisables dans l'application.
+Ils permettent de découper l'application en plusieurs parties et de les réutiliser dans d'autres applications.
+
+Un composant est composé de trois parties :
+
+- Le template : la vue du composant
+- Le script : la logique du composant
+- Le style : le style du composant
+
+Exemple de composant :
+
+````vue
+
+<script setup>
+import HelloWorld from './components/HelloWorld.vue';
+import TheWelcome from './components/TheWelcome.vue';
+</script>
+
+<template>
+  <header>
+    <img alt="Vue logo" class="logo" src="https://megadico.com/ressources/IMAGES/Ralouf.jpg" width="125" height="125"/>
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!"/>
+    </div>
+  </header>
+
+  <main>
+    <TheWelcome/>
+  </main>
+</template>
+
+<style scoped>
+header {
+  line-height: 1.5;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+</style>
+````
+
+#### Les vues
+
+Les vues sont des composants qui sont utilisés pour afficher une page de l'application.
+Elles sont composées de plusieurs composants.
+

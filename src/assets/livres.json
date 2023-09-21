@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Le Seigneur des Anneaux",
+    "author": "J.R.R. Tolkien",
+    "pages": 1178,
+    "date": "1954-07-29"
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "pages": 328,
+    "date": "1949-06-08"
+  },
+  {
+    "title": "Harry Potter à l'école des sorciers",
+    "author": "J.K. Rowling",
+    "pages": 332,
+    "date": "1997-06-26"
+  },
+  {
+    "title": "Le Petit Prince",
+    "author": "Antoine de Saint-Exupéry",
+    "pages": 96,
+    "date": "1943-04-06"
+  },
+  {
+    "title": "Moby-Dick",
+    "author": "Herman Melville",
+    "pages": 704,
+    "date": "1851-10-18"
+  }
+]
